@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  date: string;
+  slug: string;
+}
+
+const { title, description, date, slug } = Astro.props;
+const formattedDate = new Date(date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow">
+  <div class="p-6">
+    <time class="text-sm text-gold font-medium">{formattedDate}</time>
+    <h3 class="text-xl font-heading font-bold text-charcoal mt-2 mb-3">
+      <a href={`/resources/${slug}`} class="hover:text-navy transition-colors">
+        {title}
+      </a>
+    </h3>
+    <p class="text-gray-600 leading-relaxed mb-4">{description}</p>
+    <a
+      href={`/resources/${slug}`}
+      class="text-gold font-semibold text-sm hover:text-gold-light transition-colors"
+    >
+      Read more →
+    </a>
+  </div>
+</article>

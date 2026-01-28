@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import FAQItem from '../components/FAQItem.astro';
+import CTASection from '../components/CTASection.astro';
+import { services } from '../data/services';
+import { faqs } from '../data/faqs';
+---
+
+<BaseLayout
+  title="Our Services — Halliday AI Consulting"
+  description="From AI assessments to implementation and training, Halliday provides end-to-end AI consulting for small businesses."
+>
+  <!-- Page Hero -->
+  <section class="bg-gradient-to-br from-navy to-charcoal py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+        Services Designed for <span class="text-gold">Real Businesses</span>
+      </h1>
+      <p class="text-xl text-gray-300 leading-relaxed">
+        Every service we offer is built around one goal: making AI simple, practical, and valuable for your business.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Detail -->
+  <section class="py-20 px-4">
+    <div class="max-w-5xl mx-auto space-y-20">
+      {services.map((service, i) => (
+        <div
+          id={service.title.toLowerCase().replace(/\s+/g, '-')}
+          class:list={[
+            'scroll-mt-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center',
+            i % 2 === 1 ? 'lg:direction-rtl' : '',
+          ]}
+        >
+          <div class={i % 2 === 1 ? 'lg:order-2' : ''}>
+            <div class="text-5xl mb-4">{service.icon}</div>
+            <h2 class="text-3xl font-heading font-bold text-charcoal mb-4">{service.title}</h2>
+            <p class="text-gray-600 text-lg leading-relaxed mb-4">{service.description}</p>
+            <p class="text-gray-500 leading-relaxed">{service.details}</p>
+          </div>
+          <div class={`bg-bg-light rounded-2xl p-10 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+            <div class="space-y-4">
+              <h3 class="text-lg font-semibold text-charcoal">What you get:</h3>
+              <ul class="space-y-3">
+                {[
+                  'Personalized plan tailored to your business',
+                  'Plain-language explanations at every step',
+                  'Hands-on implementation support',
+                  'Follow-up to ensure everything is working',
+                ].map((item) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="text-gray-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 px-4 bg-bg-light">
+    <div class="max-w-3xl mx-auto">
+      <SectionHeading
+        title="Frequently Asked Questions"
+        subtitle="Got questions? We've got answers. And if you don't see yours here, just ask."
+      />
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <FAQItem question={faq.question} answer={faq.answer} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection
+    heading="Not Sure Which Service You Need?"
+    body="That's perfectly fine. Book a free consultation and we'll figure it out together."
+    buttonText="Book a Free Consultation"
+    buttonHref="/contact"
+  />
+</BaseLayout>

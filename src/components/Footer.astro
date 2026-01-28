@@ -1,0 +1,54 @@
+---
+import { navItems } from '../data/navigation';
+---
+
+<footer class="bg-charcoal text-gray-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <!-- Brand -->
+      <div>
+        <h3 class="text-white text-xl font-heading font-bold mb-4">Halliday</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Guiding small businesses into the world of AI and automation. No jargon, no confusion — just results.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          {navItems.map((item) => (
+            <li>
+              <a href={item.href} class="text-sm text-gray-400 hover:text-gold transition-colors">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="text-white font-semibold mb-4">Get in Touch</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li>
+            <a href="mailto:chris@hallidayinc.com" class="hover:text-gold transition-colors">
+              chris@hallidayinc.com
+            </a>
+          </li>
+          <li>Monday – Friday, 9am – 5pm</li>
+        </ul>
+        <a
+          href="/contact"
+          class="inline-block mt-6 bg-gold hover:bg-gold-light text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors"
+        >
+          Book a Free Consultation
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-700 mt-12 pt-8 text-center text-sm text-gray-500">
+      <p>&copy; {new Date().getFullYear()} Halliday. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

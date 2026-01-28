@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<BaseLayout
+  title="About Halliday — Our Mission to Make AI Accessible"
+  description="Halliday is a consultancy dedicated to helping small businesses embrace AI with confidence. Learn about our team, our mission, and our approach."
+>
+  <!-- Page Hero -->
+  <section class="bg-gradient-to-br from-navy to-charcoal py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+        We Believe Every Small Business Deserves <span class="text-gold">AI Confidence</span>
+      </h1>
+      <p class="text-xl text-gray-300 leading-relaxed">
+        We started Halliday because too many small business owners were being left behind in the AI revolution — not because they couldn't benefit, but because no one took the time to explain it in plain language.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <SectionHeading title="Our Story" align="left" />
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">
+            Halliday was founded with a simple observation: the businesses that needed AI the most were the ones most afraid of it. Large enterprises had entire teams dedicated to digital transformation. Small businesses had Google searches and a growing sense of being left behind.
+          </p>
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">
+            We set out to change that. Our team combines deep knowledge of AI and automation with something equally important — the ability to communicate clearly and patiently. We don't talk down to our clients. We walk beside them.
+          </p>
+          <p class="text-gray-600 text-lg leading-relaxed">
+            Today, we've helped businesses across industries — from local bakeries to accounting firms — discover that AI isn't something to fear. It's a tool that, when used thoughtfully, can transform the way they work.
+          </p>
+        </div>
+        <div class="bg-bg-warm rounded-2xl p-10">
+          <h3 class="text-2xl font-heading font-bold text-charcoal mb-6">What Drives Us</h3>
+          <ul class="space-y-4">
+            {[
+              'Make AI accessible to everyone, regardless of technical background',
+              'Provide honest, jargon-free guidance you can actually use',
+              'Prioritize your business goals over flashy technology',
+              'Build long-term relationships, not one-time sales',
+              'Start small and prove value before scaling up',
+            ].map((value) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-700">{value}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Approach -->
+  <section class="py-20 px-4 bg-bg-light">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeading
+        title="Our Approach"
+        subtitle="We follow a proven process that takes the mystery out of AI."
+      />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl p-8 shadow-sm text-center">
+          <div class="w-16 h-16 mx-auto bg-gold/10 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-heading font-bold text-charcoal mb-3">Listen First</h3>
+          <p class="text-gray-600 leading-relaxed">We start by understanding your business — your goals, your challenges, and what keeps you up at night. No assumptions.</p>
+        </div>
+        <div class="bg-white rounded-xl p-8 shadow-sm text-center">
+          <div class="w-16 h-16 mx-auto bg-navy/10 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-heading font-bold text-charcoal mb-3">Plan Simply</h3>
+          <p class="text-gray-600 leading-relaxed">We create a clear, actionable roadmap with realistic expectations. You'll always know exactly what's happening and why.</p>
+        </div>
+        <div class="bg-white rounded-xl p-8 shadow-sm text-center">
+          <div class="w-16 h-16 mx-auto bg-gold/10 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-heading font-bold text-charcoal mb-3">Deliver Results</h3>
+          <p class="text-gray-600 leading-relaxed">We implement, train, and support — staying with you until AI feels as natural as checking your email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection
+    heading="Let's Talk About Your Business"
+    body="Schedule a free, no-obligation consultation and discover how AI can work for you."
+    buttonText="Get Started"
+    buttonHref="/contact"
+  />
+</BaseLayout>

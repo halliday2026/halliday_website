@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout
+  title="Contact Halliday — Book a Free AI Consultation"
+  description="Ready to explore AI for your small business? Get in touch with Halliday for a free, no-obligation consultation."
+>
+  <!-- Page Hero -->
+  <section class="bg-gradient-to-br from-navy to-charcoal py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+        Let's Start a <span class="text-gold">Conversation</span>
+      </h1>
+      <p class="text-xl text-gray-300 leading-relaxed">
+        No pressure, no jargon. Just a friendly chat about your business and how AI might help. We're here to listen.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+        <!-- Form -->
+        <div class="lg:col-span-2">
+          <h2 class="text-2xl font-heading font-bold text-charcoal mb-6">Send Us a Message</h2>
+          <ContactForm />
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-8">
+          <div class="bg-bg-light rounded-xl p-8">
+            <h3 class="text-lg font-heading font-bold text-charcoal mb-4">Get in Touch Directly</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <div>
+                  <p class="font-medium text-charcoal">Email</p>
+                  <a href="mailto:chris@hallidayinc.com" class="text-gold hover:text-gold-light transition-colors">chris@hallidayinc.com</a>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div>
+                  <p class="font-medium text-charcoal">Business Hours</p>
+                  <p class="text-gray-600">Monday – Friday, 9am – 5pm</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-bg-warm rounded-xl p-8">
+            <h3 class="text-lg font-heading font-bold text-charcoal mb-4">What to Expect</h3>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start gap-3">
+                <span class="text-gold font-bold">1.</span>
+                <span>We'll respond within one business day</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-gold font-bold">2.</span>
+                <span>Schedule a free 30-minute consultation</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-gold font-bold">3.</span>
+                <span>Get personalized recommendations — no strings attached</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

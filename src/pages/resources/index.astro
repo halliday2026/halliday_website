@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<BaseLayout
+  title="Resources — Halliday AI Consulting"
+  description="Practical guides, tips, and insights to help small business owners understand and embrace AI."
+>
+  <!-- Page Hero -->
+  <section class="bg-gradient-to-br from-navy to-charcoal py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+        Resources & <span class="text-gold">Insights</span>
+      </h1>
+      <p class="text-xl text-gray-300 leading-relaxed">
+        Practical, jargon-free articles to help you understand AI and how it can benefit your business.
+      </p>
+    </div>
+  </section>
+
+  <!-- Posts Grid -->
+  <section class="py-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {posts.map((post) => (
+          <BlogPostCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            slug={post.id.replace(/\.md$/, '')}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
