@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="AI Opportunity Assessment — Halliday"
+  description="Take our AI Opportunity Assessment to discover how AI can benefit your business."
+>
+  <section class="py-20 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-charcoal text-center mb-12">
+        AI Opportunity Assessment
+      </h1>
+
+      <!-- Tally Form Embed  -->
+      <div id="tally-embed" class="min-h-[600px] bg-bg-light rounded-xl p-4">
+        <iframe data-tally-src="https://tally.so/embed/PdzeMe?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="598" frameborder="0" marginheight="0" marginwidth="0" title="Halliday AI Opportunity Assessment"></iframe>
+        <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
