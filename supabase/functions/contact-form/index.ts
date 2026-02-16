@@ -1,6 +1,5 @@
 import "@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
 
 const ALLOWED_ORIGIN = "https://hallidayinc.com";
 
@@ -50,26 +49,21 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Send email notification via SMTP
-    try {
-      const client = new SMTPClient({
-        connection: {
-          hostname: Deno.env.get("SMTP_HOST")!,
-          port: Number(Deno.env.get("SMTP_PORT") || 587),
-          tls: true,
-          auth: {
-            username: Deno.env.get("SMTP_USER")!,
-            password: Deno.env.get("SMTP_PASS")!,
+    // Send email notification via Resend
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    if (resendApiKey) {
+      try {
+        const emailRes = await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${resendApiKey}`,
+            "Content-Type": "application/json",
           },
-        },
-      });
-
-      await client.send({
-        from: Deno.env.get("SMTP_FROM") || "chris@hallidayinc.com",
-        to: "chris@hallidayinc.com",
-        subject: "New Call Request from Website",
-        content: "auto",
-        html: `<h2>New Call Request Received</h2>
+          body: JSON.stringify({
+            from: "Halliday Website <notifications@hallidayinc.com>",
+            to: "chris@hallidayinc.com",
+            subject: "New Call Request from Website",
+            html: `<h2>New Call Request Received</h2>
 <p><strong>Name:</strong> ${fullName}</p>
 <p><strong>Email:</strong> ${email}</p>
 <p><strong>Phone:</strong> ${phoneNumber || "Not provided"}</p>
@@ -77,11 +71,15 @@ Deno.serve(async (req) => {
 <p><strong>Business:</strong> ${businessName || "Not provided"}</p>
 <p><strong>Interest:</strong> ${interestedIn || "Not specified"}</p>
 <p><strong>Comments:</strong> ${comments}</p>`,
-      });
+          }),
+        });
 
-      await client.close();
-    } catch (emailErr) {
-      console.error("SMTP error:", emailErr);
+        if (!emailRes.ok) {
+          console.error("Resend error:", await emailRes.text());
+        }
+      } catch (emailErr) {
+        console.error("Email error:", emailErr);
+      }
     }
 
     return new Response(
